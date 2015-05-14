@@ -1,7 +1,12 @@
 language: php
 
 php:
- - 5.6
+  - 5.4
+  - 5.5
+  - 5.6
+#  - 7.0
+#  - hhvm
+#  - hhvm-nightly
 
 before_script:
  - mkdir -p shippable/codecoverage
@@ -19,9 +24,11 @@ before_script:
  - cd tests/codeception/bin
  - php yii migrate all --interactive=0
  - cd ../../..
+ - cd web
 
 script:
  - php -S localhost:8080 > /dev/null 2>&1 &
+ - cd ..
  - cd tests
  - codecept run --xml --coverage --coverage-xml --coverage-html
  - cd codeception/_output
