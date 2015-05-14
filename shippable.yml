@@ -13,6 +13,7 @@ before_script:
  - composer global require "codeception/codeception=2.0.*" "codeception/specify=*" "codeception/verify=*"
  - cd tests
  - codecept build
+ - cd ..
  - mysql -e 'CREATE DATABASE notabenoid_tests;';
  - cd tests/codeception/bin
  - php yii migrate all --interactive=0
