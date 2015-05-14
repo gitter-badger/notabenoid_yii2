@@ -11,7 +11,7 @@ php:
 before_script:
  - mkdir -p shippable/codecoverage
  - mkdir -p shippable/testresults
- - sudo apt-get update && sudo apt-get install php5-gd
+ - yes '' | sudo pecl install imagick
  - composer self-update
  - export PATH="$HOME/.composer/vendor/bin:$PATH"
  - composer global require "fxp/composer-asset-plugin:1.0.0" -n --prefer-source
