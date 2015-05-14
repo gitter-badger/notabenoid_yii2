@@ -8,10 +8,12 @@ php:
 #  - hhvm
 #  - hhvm-nightly
 
+
 before_script:
  - mkdir -p shippable/codecoverage
  - mkdir -p shippable/testresults
- - yes '' | sudo pecl install imagick
+ - pecl channel-update pecl.php.net
+ - pecl install imagick
  - composer self-update
  - export PATH="$HOME/.composer/vendor/bin:$PATH"
  - composer global require "fxp/composer-asset-plugin:1.0.0" -n --prefer-source
@@ -32,8 +34,8 @@ script:
  - cd tests
  - codecept run --xml --coverage --coverage-xml --coverage-html
  - cd codeception/_output
- - cp coverage.xml ../../../../shippable/codecoverage
- - cp report.xml ../../../../shippable/testresults
+ #- cp coverage.xml ../../shippable/codecoverage
+ #- cp report.xml ../../shippable/testresults
 
 notifications:
   email: false
