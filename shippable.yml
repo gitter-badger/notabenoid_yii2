@@ -14,7 +14,9 @@ before_script:
  - cd tests
  - codecept build
  - mysql -e 'CREATE DATABASE notabenoid_tests;';
- - cd tests/codeception/bin && php yii migrate all --interactive=0 && cd ../../..
+ - cd tests/codeception/bin
+ - php yii migrate all --interactive=0
+ - cd ../../..
 
 script:
  - php -S localhost:8080 > /dev/null 2>&1 &
